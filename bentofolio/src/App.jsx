@@ -3,8 +3,8 @@ import hackerImage from './assets/images/hacker.jpg';
 import workingImage from './assets/images/working.jpg';
 import workLaptopImage from './assets/images/workLaptop.jpg';
 import chatAppPhoto from './assets/images/Chat App.png';
-import coinCollector from './assets/images/coinCollector.jpeg';
-import bmiCalc from './assets/images/bmiCalc.png';
+import coinCollector from './assets/images/coincollector.jpeg';
+import bmiCalc from './assets/images/bmicalc.png';
 
 import { useState } from 'react';
 import { Mail, Github, Linkedin, ExternalLink, ArrowUpRight, Menu } from 'lucide-react';
