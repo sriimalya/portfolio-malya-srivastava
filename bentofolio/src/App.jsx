@@ -157,8 +157,8 @@ const Portfolio = () => {
 
       {/* Skills & Experience */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-        <div className="bg-white rounded-3xl p-8 ">
-          <h2 className="text-white text-xl font-medium mb-6 inline-block px-4 py-1 bg-zinc-900 rounded-full">Skills</h2>
+        <div className="bg-[#E1FF4A] rounded-3xl p-8 ">
+          <h2 className="text-[#E1FF4A] text-xl font-medium mb-6 inline-block px-4 py-1 bg-zinc-900 rounded-full">Skills</h2>
           <div className="flex flex-wrap gap-2">
             {[
               "C/C++",
@@ -183,7 +183,7 @@ const Portfolio = () => {
             ].map((skill, i) => (
               <span
                 key={i}
-                className={`px-4 py-1 rounded-full hover:scale-105 transition-transform duration-200 ${i % 2 === 0 ? "bg-zinc-900 text-white" : "border border-zinc-300 text-black"
+                className={`px-4 py-1 rounded-full hover:scale-105 transition-transform duration-200 border border-zinc-900 border-1 text-black text-3xl" 
                   }`}
               >
                 {skill}
@@ -210,7 +210,7 @@ const Portfolio = () => {
       </div>
 
       {/* Projects */}
-      <div id="projects" className="mb-12 border border-white border-1 p-8 sm:p-12 rounded-3xl">
+      <div id="projects" className="mb-12 border border-white border-1 p-8 sm:p-12 rounded-3xl hover:border-[#E1FF4A]">
         <div className="flex gap-4 items-center mb-8">
           <h2 className="text-[#E1FF4A] text-3xl font-bold">PROJECTS</h2>
           <button className="border border-white px-3 py-1 rounded-full text-sm flex items-center gap-0.5 text-[#E1FF4A]">
