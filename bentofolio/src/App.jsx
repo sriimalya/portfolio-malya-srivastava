@@ -12,7 +12,7 @@ const App = () => {
     <Router>
       <div className="min-h-screen bg-zinc-900 text-white flex flex-col">
         <Header />
-        <div className="p-8 flex-grow">
+        <div className="mx-8 mb-12 mt-12 flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<ProjectsPage />} />
