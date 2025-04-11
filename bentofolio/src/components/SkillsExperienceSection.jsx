@@ -1,26 +1,38 @@
 import { useContext } from 'react';
+import { ArrowDownRight } from 'lucide-react';
+
 
 const SkillsExperienceSection = () => {
-  const skills = [
-    "C/C++",
-    "Java",
-    "Python",
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React.js",
-    "Node.js",
-    "Express.js",
-    "SQL",
-    "MongoDB",
-    "Tailwind CSS",
-    "Git",
-    "GitLFS",
-    "Unity3D",
-    "Figma",
-    "Operating System",
-    "Computer Network",
-    "Object-Oriented Programming"
+  // Organized skills into proper categories
+  const devSkills = [
+    // Programming Languages
+    "Java", "Python", "JavaScript", "C++", "C", "C#",
+
+    // Frontend Development
+    "React.js", "HTML", "Tailwind CSS",
+
+    // Backend Development
+    "Node.js", "Express.js",
+
+    // Databases
+    "SQL", "MongoDB",
+
+    // Tools
+    "Git", "GitHub"
+  ];
+
+  const designSkills = [
+    "Figma", "UI Design", "UX Design", "User Research",
+    "Wireframing", "Prototyping"
+  ];
+
+  const otherSkills = [
+    "Computer Networking", "Operating Systems",
+    "Unity3D", "WordPress"
+  ];
+
+  const currentlyLearning = [
+    "Next.js", "TypeScript", "Three.js"
   ];
 
   const experience = [
@@ -39,33 +51,113 @@ const SkillsExperienceSection = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 mx-8">
-      <div className="bg-[#E1FF4A] rounded-3xl p-8">
-        <h2 className="text-[#E1FF4A] text-xl font-medium mb-6 inline-block px-4 py-1 bg-zinc-900 rounded-full">Skills</h2>
-        <div className="flex flex-wrap gap-2">
-          {skills.map((skill, i) => (
-            <span
-              key={i}
-              className="px-4 py-1 rounded-full hover:scale-105 transition-transform duration-200 border border-zinc-900 border-1 text-black"
-            >
-              {skill}
-            </span>
-          ))}
+    <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 mb-12 mx-4 md:mx-8">
+      {/* Skills Card */}
+      <div className="bg-[#E1FF4A] rounded-3xl p-6 sm:p-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          {/* Skills Title */}
+          <h2 className="text-2xl font-bold text-zinc-900">Skills & Expertise</h2>
+          
+          {/* Currently Learning */}
+          <div className="relative group flex-shrink-0">
+            <div className="px-4 py-2 rounded-full bg-zinc-900 text-[#E1FF4A] flex items-center gap-2 hover:bg-zinc-800 transition-colors cursor-pointer">
+              <span className="font-medium">Currently Learning</span>
+              <div className="relative flex items-center">
+                <div className="w-2 h-2 bg-[#EF4444] rounded-full animate-pulse mr-1"></div>
+                <span className="text-xs">{currentlyLearning.length} skills</span>
+              </div>
+            </div>
+            
+            {/* Learning Items - appear on hover */}
+            <div className="absolute z-10 hidden group-hover:block right-0 mt-2 p-4 bg-zinc-900 rounded-xl border border-[#E1FF4A]/50 w-64 shadow-lg">
+              <div className="flex flex-wrap gap-2">
+                {currentlyLearning.map((skill, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1 text-xs rounded-full bg-[#E1FF4A] text-zinc-900"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Skills List - Organized by Category */}
+        <div className="space-y-6">
+          {/* Development Skills */}
+          <div>
+            <h3 className="text-zinc-900 font-medium mb-3 flex items-center gap-1 font-semibold">
+              Development
+              <span><ArrowDownRight size={18} />
+              </span>
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {devSkills.map((skill, i) => (
+                <span
+                  key={`dev-${i}`}
+                  className="px-3 py-1 rounded-full border border-zinc-900 text-black hover:scale-105 transition-transform duration-200 text-sm font-medium"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Design Skills */}
+          <div>
+            <h3 className="text-zinc-900 font-medium mb-3 flex items-center gap-1 font-semibold">
+              Design
+              <span><ArrowDownRight size={18} />
+              </span>
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {designSkills.map((skill, i) => (
+                <span
+                  key={`design-${i}`}
+                  className="px-3 py-1 rounded-full border border-zinc-900 text-black hover:scale-105 transition-transform duration-200 text-sm font-medium"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Other Skills */}
+          <div>
+            <h3 className="text-zinc-900 font-medium mb-3 flex items-center gap-1 font-semibold">
+              Other
+              <span><ArrowDownRight size={18} />
+              </span>
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {otherSkills.map((skill, i) => (
+                <span
+                  key={`other-${i}`}
+                  className="px-3 py-1 rounded-full border border-zinc-900 text-black hover:scale-105 transition-transform duration-200 text-sm font-medium"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-      
-      <div className="border border-1 border-white rounded-3xl p-8 transform hover:border-[#E1FF4A] transition-colors duration-300">
+
+      {/* Experience Card */}
+      <div className="border border-1 border-white rounded-3xl p-6 transform hover:border-[#E1FF4A] transition-colors duration-300">
         <h2 className="text-xl font-medium mb-6 inline-block px-4 py-1 bg-white text-black rounded-full">Experience</h2>
         {experience.map((exp, i) => (
           <div key={i} className="mb-6 last:mb-0">
-            <div className="flex items-top gap-2 mb-1">
-              <div className="w-4 h-4 text-[#E1FF4A]">✦</div>
-              <h3 className="text-xl text-[#E1FF4A]">{exp.title}</h3>
+            <div className="flex items-top gap-2 mb-2">
+              <div className="w-3 h-3 text-[#E1FF4A] mt-1 flex-shrink-0">✦</div>
+              <h3 className="text-lg text-[#E1FF4A]">{exp.title}</h3>
             </div>
-            <div className="ml-6">
-              <p className="font-bold">{exp.company}</p>
-              <p className="text-sm text-gray-400">{exp.period}</p>
-              <p className="text-sm text-gray-400">Skills: {exp.skills}</p>
+            <div className="ml-5">
+              <p className="font-bold text-sm">{exp.company}</p>
+              <p className="text-sm text-gray-400 mt-1">{exp.period}</p>
+              <p className="text-sm text-gray-400 mt-1">Skills: {exp.skills}</p>
             </div>
           </div>
         ))}

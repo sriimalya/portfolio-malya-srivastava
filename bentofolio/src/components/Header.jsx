@@ -17,17 +17,17 @@ const Header = () => {
 
       <nav className={`${isMenuOpen ? 'block absolute top-16 right-4 bg-zinc-800 p-4 rounded-lg shadow-lg z-10' : 'hidden'} lg:block lg:static lg:bg-transparent lg:p-0 lg:shadow-none transition-all duration-200`}>
         <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8">
-          <NavLink to="/" 
-            className={({isActive}) => isActive ? "text-[#E1FF4A]" : "text-white hover:text-[#E1FF4A] transition-colors duration-200"}>
+          <NavLink to="/"
+            className={({ isActive }) => isActive ? "text-[#E1FF4A]" : "text-white hover:text-[#E1FF4A] transition-colors duration-200"}>
             home
           </NavLink>
-          <NavLink to="/projects" 
-            className={({isActive}) => isActive ? "text-[#E1FF4A]" : "text-white hover:text-[#E1FF4A] transition-colors duration-200"}>
-            projects
+          <NavLink to="/dev-projects"
+            className={({ isActive }) => isActive ? "text-[#E1FF4A]" : "text-white hover:text-[#E1FF4A] transition-colors duration-200"}>
+            dev projects
           </NavLink>
-          <NavLink to="/blog" 
-            className={({isActive}) => isActive ? "text-[#E1FF4A]" : "text-white hover:text-[#E1FF4A] transition-colors duration-200"}>
-            blog
+          <NavLink to="/ux-projects"
+            className={({ isActive }) => isActive ? "text-[#E1FF4A]" : "text-white hover:text-[#E1FF4A] transition-colors duration-200"}>
+            ux-projects
           </NavLink>
           <NavLink to="/contact"
             className="text-white hover:text-[#E1FF4A] transition-colors duration-200">

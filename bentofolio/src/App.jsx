@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Home from './pages/Home';
 import ProjectsPage from './pages/ProjectsPage';
-import BlogPage from './pages/BlogPage';
+import UxProjectsPage from './pages/UxProjectsPage';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
@@ -15,8 +15,8 @@ const App = () => {
         <div className="mx-8 mb-12 mt-12 flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/dev-projects" element={<ProjectsPage />} />
+            <Route path="/ux-projects" element={<UxProjectsPage />} />
             <Route path="/contact" element={<ContactSection />} />
           </Routes>
         </div>

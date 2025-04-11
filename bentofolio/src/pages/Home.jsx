@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 import HeroSection from '../components/HeroSection';
 import SkillsExperienceSection from '../components/SkillsExperienceSection';
 import FeaturedProjects from '../components/FeaturedProjects';
