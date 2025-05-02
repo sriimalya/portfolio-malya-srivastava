@@ -1,6 +1,7 @@
 import chatAppPhoto from '../assets/images/Chat App.png';
 import coinCollector from '../assets/images/coincollector.jpeg';
 import bmiCalc from '../assets/images/bmicalc.png';
+import quizApp from '../assets/images/quizapp.png';
 
 export const codeProjectsData = [
   {
@@ -29,5 +30,13 @@ export const codeProjectsData = [
     github: "https://github.com/sriimalya/JS-Projects/tree/main/2-BMI%20Calculator",
     demo: "https://sriimalya.github.io/JS-Projects/2-BMI%20Calculator/index.html",
     featured: true
-  }
+  },
+  {
+    name: "Quiz App",
+    description: "A simple React-based quiz app that evaluates user answers and displays the final score upon completion.",
+    technologies: ["CSS", "React"],
+    photoPath: quizApp,
+    github: "https://github.com/sriimalya/quizz-app",
+    featured: true
+  },
 ];
