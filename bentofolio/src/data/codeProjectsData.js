@@ -1,7 +1,7 @@
 import chatAppPhoto from '../assets/images/Chat App.png';
 import coinCollector from '../assets/images/coincollector.jpeg';
 import bmiCalc from '../assets/images/bmicalc.png';
-import quizApp from '../assets/images/quizapp.png';
+import quizApp from '../assets/images/QuizzApp.png';
 
 export const codeProjectsData = [
   {
