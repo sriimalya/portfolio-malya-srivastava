@@ -2,6 +2,7 @@ import chatAppPhoto from '../assets/images/Chat App.png';
 import coinCollector from '../assets/images/coincollector.jpeg';
 import bmiCalc from '../assets/images/bmicalc.png';
 import quizApp from '../assets/images/QuizzApp.png';
+import taskManager from '../assets/images/taskManager.png';
 
 export const codeProjectsData = [
   {
@@ -14,12 +15,19 @@ export const codeProjectsData = [
     featured: true
   },
   {
-    name: "Coin Collector",
-    description: "In this game the player navigates through an environment and collect coins.",
-    technologies: ["Unity3D", "C#"],
-    photoPath: coinCollector,
-    github: "https://github.com/sriimalya/Coin-Collector",
-    demo: "https://youtu.be/pNFaFmm1QyM?si=oovgsXYyFJutG4oN",
+    name: "Task Manager",
+    description: "A simple task manager that allows users to add, edit, delete and search the tasks.",
+    technologies: ["React", "CSS", "Redux Toolkit"],
+    photoPath: taskManager,
+    github: "https://github.com/sriimalya/task-manager-redux-toolkit",
+    featured: true
+  },
+  {
+    name: "Quiz App",
+    description: "A simple React-based quiz app that evaluates user answers and displays the final score upon completion.",
+    technologies: ["CSS", "React"],
+    photoPath: quizApp,
+    github: "https://github.com/sriimalya/quizz-app",
     featured: true
   },
   {
@@ -32,11 +40,12 @@ export const codeProjectsData = [
     featured: true
   },
   {
-    name: "Quiz App",
-    description: "A simple React-based quiz app that evaluates user answers and displays the final score upon completion.",
-    technologies: ["CSS", "React"],
-    photoPath: quizApp,
-    github: "https://github.com/sriimalya/quizz-app",
+    name: "Coin Collector",
+    description: "In this game the player navigates through an environment and collect coins.",
+    technologies: ["Unity3D", "C#"],
+    photoPath: coinCollector,
+    github: "https://github.com/sriimalya/Coin-Collector",
+    demo: "https://youtu.be/pNFaFmm1QyM?si=oovgsXYyFJutG4oN",
     featured: true
   },
 ];
