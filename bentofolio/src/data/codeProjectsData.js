@@ -3,8 +3,18 @@ import coinCollector from '../assets/images/coincollector.jpeg';
 import bmiCalc from '../assets/images/bmicalc.png';
 import quizApp from '../assets/images/QuizzApp.png';
 import taskManager from '../assets/images/taskManager.png';
+import EventListing from '../assets/images/Event Listing.png';
 
 export const codeProjectsData = [
+  {
+    name: "Sydney Events Scraper",
+    description: "A Next.js web app with server-side scraping (Puppeteer), real-time event updates, and email-based ticketing—all connected to PostgreSQL via Prisma.",
+    technologies: ["Next.js", "Typescript", "Puppeteer", "PostgreSQL", "Prisma"],
+    photoPath: EventListing,
+    github: "https://github.com/sriimalya/louder-scrape-sydney-events",
+    demo: "https://louder-scrape-sydney-events.vercel.app/",
+    featured: true
+  },
   {
     name: "Winsock Chatroom",
     description: "Interactive Multi-Client Chat Application Leveraging C++ Socket Programming",
