@@ -32,11 +32,12 @@ const HeroSection = () => {
         </p>
 
         <div className="flex flex-wrap gap-4 items-center">
-          <Link
-            to="/projects"
+          <a
+            href="#projects"
             className="bg-[#E1FF4A] text-black px-6 py-2 rounded-full flex items-center gap-1 hover:bg-[#d4f038] transform hover:scale-105 transition-all duration-200">
             My Work <ArrowUpRight size={20} />
-          </Link>
+          </a>
+
           <div className="flex gap-4">
             <a href={socialLinks.github} target="_blank" rel="noopener noreferrer"
               className="transform hover:scale-110 transition-transform duration-200">

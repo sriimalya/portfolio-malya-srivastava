@@ -4,6 +4,7 @@ import bmiCalc from '../assets/images/bmicalc.png';
 import quizApp from '../assets/images/QuizzApp.png';
 import taskManager from '../assets/images/taskManager.png';
 import EventListing from '../assets/images/Event Listing.png';
+import ResourceTracker from '../assets/images/ResourceTracker.png';
 
 export const codeProjectsData = [
   {
@@ -23,6 +24,14 @@ export const codeProjectsData = [
     github: "https://github.com/sriimalya/winsock-chatroom",
     demo: null,
     featured: true
+  },
+  {
+    name: "Node Resourse Tracker",
+    description: "Real-time CPU and memory usage monitor built with Node.js.",
+    technologies: ["Node.js"],
+    photoPath: ResourceTracker,
+    github: "https://github.com/sriimalya/Node-Resource-Tracker",
+    featured: true    
   },
   {
     name: "Task Manager",
