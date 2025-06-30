@@ -5,8 +5,18 @@ import quizApp from '../assets/images/QuizzApp.png';
 import taskManager from '../assets/images/taskManager.png';
 import EventListing from '../assets/images/Event Listing.png';
 import ResourceTracker from '../assets/images/ResourceTracker.png';
+import ChefGemini from '../assets/images/ChefGemini.png';
 
 export const codeProjectsData = [
+  {
+    name: "Chef Gemini",
+    description: "An AI-powered recipe generator that creates creative dishes using your available ingredients built with React, Node.js, and the Gemini API.",
+    technologies: ["HTML5/CSS3", "React", "Node.js", "Gemini AI API"],
+    photoPath: ChefGemini,
+    github: "https://github.com/sriimalya/chef-gemini/",
+    demo: "https://chef-gemini-iota.vercel.app/",
+    featured: true
+  },
   {
     name: "Sydney Events Scraper",
     description: "A Next.js web app with server-side scraping (Puppeteer), real-time event updates, and email-based ticketing—all connected to PostgreSQL via Prisma.",
