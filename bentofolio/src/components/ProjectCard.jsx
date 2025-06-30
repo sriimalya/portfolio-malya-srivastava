@@ -13,7 +13,7 @@ const ProjectCard = ({ project }) => {
       <h3 className="font-medium text-[#E1FF4A] mb-1">{project.name}</h3>
       <p className="text-sm text-gray-400 mb-3 line-clamp-2">{project.description}</p>
       <div className="flex flex-wrap gap-2 mb-3">
-        {project.technologies.slice(0, 3).map((tech) => (
+        {project.technologies.map((tech) => (
           <span key={tech} className="text-xs px-2 py-1 bg-zinc-800 rounded-md">
             {tech}
           </span>

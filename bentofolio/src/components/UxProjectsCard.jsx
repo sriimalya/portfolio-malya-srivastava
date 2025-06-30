@@ -13,7 +13,7 @@ const UxProjectsCard = ({ project }) => {
       <h3 className="font-medium text-[#E1FF4A] mb-1">{project.name}</h3>
       <p className="text-sm text-gray-400 mb-3 line-clamp-2">{project.description}</p>
       <div className="flex flex-wrap gap-2 mb-3">
-        {project.tools.slice(0, 3).map((tool) => (
+        {project.tools.map((tool) => (
           <span key={tool} className="text-xs px-2 py-1 bg-zinc-800 rounded-md">
             {tool}
           </span>
