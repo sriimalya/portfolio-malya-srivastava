@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUpRight, ExternalLink } from 'lucide-react';
 import { FaBehance } from 'react-icons/fa';
 import talkImage from '../assets/images/talk.jpg';
 import hackerImage from '../assets/images/hacker.jpg';
@@ -33,9 +33,9 @@ const HeroSection = () => {
 
         <div className="flex flex-wrap gap-4 items-center">
           <a
-            href="#projects"
+            href="https://drive.google.com/file/d/1LPuFwjMvHcea-FiIAXE4u3lLpAEtTb9K/view?usp=sharing"
             className="bg-[#E1FF4A] text-black px-6 py-2 rounded-full flex items-center gap-1 hover:bg-[#d4f038] transform hover:scale-105 transition-all duration-200">
-            My Work <ArrowUpRight size={20} />
+            Resume <ExternalLink size={18} />
           </a>
 
           <div className="flex gap-4">
