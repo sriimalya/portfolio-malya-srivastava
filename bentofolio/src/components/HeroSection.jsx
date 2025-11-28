@@ -1,10 +1,15 @@
-import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail, ArrowUpRight, ExternalLink } from 'lucide-react';
-import { FaBehance } from 'react-icons/fa';
-import talkImage from '../assets/images/talk.jpg';
-import hackerImage from '../assets/images/hacker.jpg';
-import workingImage from '../assets/images/working.jpg';
-import workLaptopImage from '../assets/images/workLaptop.jpg';
+import {
+  Github,
+  Linkedin,
+  Mail,
+  ArrowUpRight,
+  ExternalLink,
+} from "lucide-react";
+import { FaBehance } from "react-icons/fa";
+import talkImage from "../assets/images/talk.jpg";
+import hackerImage from "../assets/images/hacker.jpg";
+import workingImage from "../assets/images/working.jpg";
+import workLaptopImage from "../assets/images/workLaptop.jpg";
 
 const HeroSection = () => {
   const socialLinks = {
@@ -28,31 +33,47 @@ const HeroSection = () => {
           Hi, I am <span className="text-[#E1FF4A]">Malya Srivastava</span>
         </h1>
         <p className="text-l sm:text-l mb-6">
-          From <span className="italic">UX flows</span> to final deployment — I'm a <span className="italic">UI/UX designer</span> and <span className="italic">full-stack developer</span> delivering results through beautiful, functional web experiences.
+          From <span className="italic">UX flows</span> to final deployment —
+          I'm a <span className="italic">UI/UX designer</span> and{" "}
+          <span className="italic">full-stack developer</span> delivering
+          results through beautiful, functional web experiences.
         </p>
 
         <div className="flex flex-wrap gap-4 items-center">
           <a
             href="https://drive.google.com/file/d/1owc4kYxT6vDtzBwxV4LGIzPeOnC6bZLI/view?usp=sharing"
-            className="bg-[#E1FF4A] text-black px-6 py-2 rounded-full flex items-center gap-1 hover:bg-[#d4f038] transform hover:scale-105 transition-all duration-200">
+            className="bg-[#E1FF4A] text-black px-6 py-2 rounded-full flex items-center gap-1 hover:bg-[#d4f038] transform hover:scale-105 transition-all duration-200"
+          >
             Resume <ExternalLink size={18} />
           </a>
 
           <div className="flex gap-4">
-            <a href={socialLinks.github} target="_blank" rel="noopener noreferrer"
-              className="transform hover:scale-110 transition-transform duration-200">
+            <a
+              href={socialLinks.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transform hover:scale-110 transition-transform duration-200"
+            >
               <Github className="w-6 h-6 hover:text-[#E1FF4A] transition-colors duration-200" />
             </a>
-            <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer"
-              className="transform hover:scale-110 transition-transform duration-200">
+            <a
+              href={socialLinks.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transform hover:scale-110 transition-transform duration-200"
+            >
               <Linkedin className="w-6 h-6 hover:text-[#E1FF4A] transition-colors duration-200" />
             </a>
-            <a href={socialLinks.behance}
-              className="transform hover:scale-110 transition-transform duration-200">
+            <a
+              href={socialLinks.behance}
+              className="transform hover:scale-110 transition-transform duration-200"
+            >
               <FaBehance className="w-6 h-6 scale-110 hover:text-[#E1FF4A] transition-colors duration-200" />
             </a>
-            <a href={socialLinks.email}
-              className="transform hover:scale-110 transition-transform duration-200">
+            <a
+              href={socialLinks.email}
+              className="transform hover:scale-110 transition-transform duration-200"
+            >
               <Mail className="w-6 h-6 hover:text-[#E1FF4A] transition-colors duration-200" />
             </a>
           </div>
@@ -69,6 +90,7 @@ const HeroSection = () => {
               <img
                 src={src}
                 alt={`Photo ${id}`}
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             </div>
