@@ -117,13 +117,13 @@ const ExperienceSection = () => {
         {/* Centered panel */}
         <div className="fixed inset-0 flex items-center justify-center p-4">
           {selectedExperience && (
-            <DialogPanel className="bg-[#E1FF4A] rounded-3xl px-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto scrollbar-hide relative">
+            <DialogPanel className="bg-[#E1FF4A] rounded-3xl px-8 pb-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto scrollbar-hide relative">
               {/* Close Button */}
               <button
                 onClick={handleClose}
                 className="w-10 h-10 bg-black rounded-full flex items-center justify-center
            hover:scale-110 transition-all duration-300
-           sticky top-8 ml-auto z-20"
+           sticky top-8 ml-auto z-20" 
               >
                 <X size={20} className="text-[#E1FF4A]" />
               </button>
