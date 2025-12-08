@@ -28,15 +28,12 @@ const HeroSection = () => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 mx-8">
-      <div className="col-span-1 lg:col-span-2 rounded-3xl p-8 border border-white border-1 flex flex-col justify-center transform hover:border-[#E1FF4A] transition-colors duration-300">
+      <div className="col-span-1 lg:col-span-2 border border-white/20 rounded-2xl py-5 px-6 hover:border-[#E1FF4A]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#E1FF4A]/10 bg-gradient-to-br from-white/[0.02] to-transparent group flex flex-col justify-center">
         <h1 className="text-3xl sm:text-4xl font-medium mb-4">
           Hi, I am <span className="text-[#E1FF4A]">Malya Srivastava</span>
         </h1>
         <p className="text-l sm:text-l mb-6">
-          From <span className="italic">UX flows</span> to final deployment —
-          I'm a <span className="italic">UI/UX designer</span> and{" "}
-          <span className="italic">full-stack developer</span> delivering
-          results through beautiful, functional web experiences.
+         Building full-stack web apps that are <span className="italic">fast, scalable, and production-ready.</span>
         </p>
 
         <div className="flex flex-wrap gap-4 items-center">

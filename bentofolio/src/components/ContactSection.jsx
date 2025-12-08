@@ -4,7 +4,7 @@ const ContactSection = () => {
   const email = "mailto:malyasri0112@gmail.com";
   
   return (
-    <div id="contact" className="mx-8 rounded-3xl p-8 text-center border border-white border-1 hover:border-[#E1FF4A] transition-colors duration-300">
+    <div id="contact" className="m-8 border border-white/20 rounded-2xl py-5 px-6 hover:border-[#E1FF4A]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#E1FF4A]/10 bg-gradient-to-br from-white/[0.02] to-transparent group flex flex-col text-center">
       <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
       <p className="text-gray-400 mb-6">
         I'm always open to discussing new projects and opportunities.
