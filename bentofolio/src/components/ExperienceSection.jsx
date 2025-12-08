@@ -23,16 +23,17 @@ const ExperienceSection = () => {
       description:
         "Developed and designed user interfaces for accounting solutions. Worked on WordPress customization and front-end development.",
       achievements: [
-        "Built responsive WordPress themes",
-        "Improved user engagement by 40%",
-        "Delivered 5+ client projects",
+        "Designed responsive web pages, dashboards, and UI components in Figma",
+        "Led user research and usability testing to refine user flows",
+        "Customized WordPress themes using JavaScript and advanced styling",
+        "Improved UI accessibility and visual consistency across product screens",
       ],
     },
     {
       id: 2,
       title: "Backend Development Intern",
       company: "Lenstrack Pvt. Ltd.",
-      period: "Aug, 2025 - Aug, 2025",
+      period: "Jul, 2025 - Aug, 2025",
       skills: "Node.js, Express.js, MongoDB, PostgreSQL, REST APIs, Git",
       description:
         "Implemented and maintained scalable RESTful APIs, designed database schemas, and optimized queries for high-performance backend services. Collaborated with cross-functional teams to deliver secure and reliable backend features.",
@@ -123,14 +124,14 @@ const ExperienceSection = () => {
                 onClick={handleClose}
                 className="w-10 h-10 bg-black rounded-full flex items-center justify-center
            hover:scale-110 transition-all duration-300
-           sticky top-8 ml-auto z-20" 
+           sticky top-8 ml-auto z-20"
               >
                 <X size={20} className="text-[#E1FF4A]" />
               </button>
 
-                <DialogTitle className="text-3xl font-bold text-black mb-4 pr-12">
-                  {selectedExperience.title}
-                </DialogTitle>
+              <DialogTitle className="text-3xl font-bold text-black mb-4 pr-12">
+                {selectedExperience.title}
+              </DialogTitle>
 
               <div className="relative z-10">
                 <div className="mb-6">
