@@ -44,7 +44,7 @@ const HeroSection = () => {
 
         <div className="flex flex-wrap gap-4 items-center">
           <a
-            href="https://drive.google.com/file/d/1UuQiYBRo7764gym_RZTCn-JozxG68VLi/view?usp=sharing"
+            href="https://drive.google.com/file/d/1ELqCSx4c4svUwg9WXSPc62OwHaRuYPEV/view?usp=sharing"
             className="bg-[#E1FF4A] text-black px-6 py-2 rounded-full flex items-center gap-1 hover:bg-[#d4f038] transform hover:scale-105 transition-all duration-200"
           >
             Resume <ExternalLink size={18} />
