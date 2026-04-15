@@ -8,7 +8,7 @@ const navItems = [
   { path: '/', label: 'home' },
   { path: '/projects', label: 'projects' },
   { path: '/dev-diaries', label: 'dev diaries' },
-  { path: '/blogs', label: 'blogs' },
+  // { path: '/blogs', label: 'blogs' },
 ];
 
 const Header = () => {

@@ -45,14 +45,14 @@ const AnimatedRoutes = () => {
             </motion.div>
           }
         />
-        <Route
+        {/* <Route
           path="/blogs"
           element={
             <motion.div {...pageTransition}>
               <Blogs />
             </motion.div>
           }
-        />
+        /> */}
       </Routes>
     </AnimatePresence>
   );
