@@ -1,13 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   html {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Outfit', sans-serif;
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Theme transition on root elements */
+  html,
+  body,
+  #root {
+    transition: background-color 400ms ease, color 400ms ease;
+  }
+
+  /* Dark mode defaults */
+  .dark {
+    --bg-canvas: #0A0A0B;
+    --bg-surface: #141416;
+    --bg-elevated: #1A1A1E;
+    --glass-fill: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-hover: rgba(225, 255, 74, 0.25);
+    --text-primary: #E8E8ED;
+    --text-secondary: #71717A;
+    --text-muted: #52525B;
+    --accent: #E1FF4A;
+    --accent-wash: rgba(225, 255, 74, 0.08);
+    --accent-shadow: rgba(225, 255, 74, 0.10);
+    color-scheme: dark;
+  }
+
+  /* Light mode */
+  html:not(.dark) {
+    --bg-canvas: #F4F4F5;
+    --bg-surface: #FFFFFF;
+    --bg-elevated: #FAFAFA;
+    --glass-fill: rgba(0, 0, 0, 0.02);
+    --glass-border: rgba(0, 0, 0, 0.06);
+    --glass-border-hover: rgba(30, 30, 30, 0.15);
+    --text-primary: #18181B;
+    --text-secondary: #52525B;
+    --text-muted: #A1A1AA;
+    --accent: #3D5200;
+    --accent-wash: rgba(61, 82, 0, 0.06);
+    --accent-shadow: rgba(61, 82, 0, 0.10);
+    color-scheme: light;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card utility */
+  .glass-card {
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: border-color 300ms ease, box-shadow 300ms ease;
+  }
+
+  .glass-card:hover {
+    border-color: var(--glass-border-hover);
+    box-shadow: 0 8px 32px var(--accent-shadow);
+  }
+
+  /* Terminal cursor blink */
+  .terminal-cursor {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.1em;
+    background-color: var(--terminal-accent);
+    animation: cursorBlink 1s ease-in-out infinite;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+  }
+
+  @keyframes cursorBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Terminal container */
+  .terminal-window {
+    --terminal-text: #E8E8ED;
+    --terminal-muted: #9CA3AF;
+    --terminal-accent: #E1FF4A;
+    color: var(--terminal-text);
+    background: #111113;
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    overflow: hidden;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .terminal-chrome {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .terminal-dot--red { background: #FF5F57; }
+  .terminal-dot--yellow { background: #FEBC2E; }
+  .terminal-dot--green { background: #28C840; }
+
+  /* Bento grid responsive system */
+  .bento-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .bento-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 }
 
@@ -17,7 +141,33 @@
     display: none;
   }
   .scrollbar-hide {
-    -ms-overflow-style: none;  
-    scrollbar-width: none;     
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Accent text utility */
+  .text-accent {
+    color: var(--accent);
+  }
+
+  /* Canvas background */
+  .bg-canvas {
+    background-color: var(--bg-canvas);
+  }
+
+  .bg-surface {
+    background-color: var(--bg-surface);
+  }
+
+  .text-primary {
+    color: var(--text-primary);
+  }
+
+  .text-secondary-custom {
+    color: var(--text-secondary);
+  }
+
+  .text-muted-custom {
+    color: var(--text-muted);
   }
 }

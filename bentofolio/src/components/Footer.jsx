@@ -1,32 +1,44 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 
+const socialLinks = [
+  {
+    href: 'https://github.com/sriimalya',
+    icon: Github,
+    label: 'GitHub',
+  },
+  {
+    href: 'https://www.linkedin.com/in/malya-srivastava-5a4254229/',
+    icon: Linkedin,
+    label: 'LinkedIn',
+  },
+  {
+    href: 'https://mail.google.com/mail/?view=cm&to=malyasri0112@gmail.com',
+    icon: Mail,
+    label: 'Email',
+  },
+];
+
 const Footer = () => {
-  const socialLinks = {
-    github: "https://github.com/sriimalya",
-    linkedin: "https://linkedin.com/in/malya-srivastava-5a4254229",
-    email: "mailto:malyasri0112@gmail.com"
-  };
-  
   return (
-    <footer className="bg-zinc-800 flex justify-around items-center px-8 py-4 w-full">
-      <div className="container flex flex-col mx-8 md:flex-row justify-between items-center ">
-        <div className="mb-4 md:mb-0">
-          <p className="text-white">&copy; {new Date().getFullYear()} Malya Srivastava</p>
-        </div>
-     
-        <div className="flex gap-6">
-          <a href={socialLinks.github} target="_blank" rel="noopener noreferrer"
-            className="transform hover:scale-110 transition-transform duration-200">
-            <Github className="w-5 h-5 hover:text-[#E1FF4A] transition-colors duration-200" />
-          </a>
-          <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer"
-            className="transform hover:scale-110 transition-transform duration-200">
-            <Linkedin className="w-5 h-5 hover:text-[#E1FF4A] transition-colors duration-200" />
-          </a>
-          <a href={socialLinks.email}
-            className="transform hover:scale-110 transition-transform duration-200">
-            <Mail className="w-5 h-5 hover:text-[#E1FF4A] transition-colors duration-200" />
-          </a>
+    <footer className="border-t border-[var(--glass-border)] bg-[var(--bg-surface)]">
+      <div className="max-w-container mx-auto flex flex-col sm:flex-row justify-between items-center px-6 lg:px-8 py-6 gap-4">
+        <p className="font-mono text-xs text-[var(--text-muted)]">
+          &copy; {new Date().getFullYear()} Malya Srivastava
+        </p>
+
+        <div className="flex gap-4">
+          {socialLinks.map(({ href, icon: Icon, label }) => (
+            <a
+              key={label}
+              href={href}
+              target={label !== 'Email' ? '_blank' : undefined}
+              rel={label !== 'Email' ? 'noopener noreferrer' : undefined}
+              className="text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors duration-200"
+              aria-label={label}
+            >
+              <Icon className="w-4 h-4" />
+            </a>
+          ))}
         </div>
       </div>
     </footer>

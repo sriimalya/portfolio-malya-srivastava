@@ -1,80 +1,79 @@
-import chatAppPhoto from '../assets/images/Chat App.png';
-import coinCollector from '../assets/images/coincollector.jpeg';
-import bmiCalc from '../assets/images/bmicalc.png';
-import quizApp from '../assets/images/QuizzApp.png';
-import taskManager from '../assets/images/taskManager.png';
-import EventListing from '../assets/images/Event Listing.png';
-import ResourceTracker from '../assets/images/ResourceTracker.png';
+import Snippit from '../assets/images/ogimage.png';
 import ChefGemini from '../assets/images/ChefGemini.png';
+import EventListing from '../assets/images/Event Listing.png';
+import chatAppPhoto from '../assets/images/Chat App.png';
+import ResourceTracker from '../assets/images/ResourceTracker.png';
+import taskManager from '../assets/images/taskManager.png';
 
 export const codeProjectsData = [
   {
-    name: "Chef Gemini",
-    description: "An AI-powered recipe generator that creates creative dishes using your available ingredients built with React, Node.js, and the Gemini API.",
-    technologies: ["HTML5/CSS3", "React", "Node.js", "Gemini AI API"],
+    name: 'Snippit',
+    description:
+      'A content curation platform with real-time notifications, direct-to-S3 media uploads, and infinite scroll — built on Next.js 16+ with Prisma and PostgreSQL.',
+    technologies: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'AWS S3', 'Upstash Redis'],
+    highlights: [
+      'Real-time SSE notification pipeline with <200ms latency using a globalThis singleton store',
+      'Direct-to-S3 uploads via presigned URLs with per-file XHR progress tracking, supporting up to 50MB',
+      'Resolved N+1 queries by migrating from REST to Next.js Server Components with aggregated Prisma queries, cutting DB round-trips from ~12 to 1-2',
+      'Infinite scroll across 5+ feed types using IntersectionObserver with ref-based deduplication',
+      'Integrated NextAuth.js with Google OAuth and credential providers across 12+ pages',
+    ],
+    photoPath: Snippit,
+    github: 'https://github.com/sriimalya/snippitt/',
+    demo: 'https://snippitt.vercel.app',
+    featured: true,
+    flagship: true,
+  },
+  {
+    name: 'Chef Gemini',
+    description:
+      'A full-stack Gemini AI API integrated recipe generator, serving 50+ recipe generations with SSE streaming and reduced response latency by ~70%.',
+    technologies: ['React', 'Node.js', 'Gemini AI API', 'JWT Auth', 'GitHub Actions CI/CD'],
+    highlights: [
+      'Server-sent event streaming for real-time recipe generation',
+      'Refined prompt design increasing usable output rate to ~85%+ per request',
+    ],
     photoPath: ChefGemini,
-    github: "https://github.com/sriimalya/chef-gemini/",
-    demo: "https://chef-gemini-iota.vercel.app/",
-    featured: true
+    github: 'https://github.com/sriimalya/chef-gemini/',
+    demo: 'https://chef-gemini-iota.vercel.app/',
+    featured: true,
   },
   {
-    name: "Sydney Events Scraper",
-    description: "A Next.js web app with server-side scraping (Puppeteer), real-time event updates, and email-based ticketing—all connected to PostgreSQL via Prisma.",
-    technologies: ["Next.js", "Typescript", "Puppeteer", "PostgreSQL", "Prisma"],
+    name: 'Sydney Events Scraper',
+    description:
+      'A Next.js web app with server-side scraping (Puppeteer), real-time event updates, and email-based ticketing — all connected to PostgreSQL via Prisma.',
+    technologies: ['Next.js', 'TypeScript', 'Puppeteer', 'PostgreSQL', 'Prisma'],
     photoPath: EventListing,
-    github: "https://github.com/sriimalya/louder-scrape-sydney-events",
-    demo: "https://louder-scrape-sydney-events.vercel.app/",
-    featured: true
+    github: 'https://github.com/sriimalya/louder-scrape-sydney-events',
+    demo: 'https://louder-scrape-sydney-events.vercel.app/',
+    featured: true,
   },
   {
-    name: "Winsock Chatroom",
-    description: "Interactive Multi-Client Chat Application Leveraging C++ Socket Programming",
-    technologies: ["C++", "Winsock"],
+    name: 'Winsock Chatroom',
+    description:
+      'Interactive multi-client chat application leveraging C++ socket programming with Winsock API.',
+    technologies: ['C++', 'Winsock'],
     photoPath: chatAppPhoto,
-    github: "https://github.com/sriimalya/winsock-chatroom",
+    github: 'https://github.com/sriimalya/winsock-chatroom',
     demo: null,
-    featured: true
+    featured: true,
   },
   {
-    name: "Node Resourse Tracker",
-    description: "Real-time CPU and memory usage monitor built with Node.js.",
-    technologies: ["Node.js"],
+    name: 'Node Resource Tracker',
+    description:
+      'Real-time CPU and memory usage monitor built with Node.js for system performance visibility.',
+    technologies: ['Node.js'],
     photoPath: ResourceTracker,
-    github: "https://github.com/sriimalya/Node-Resource-Tracker",
-    featured: true    
+    github: 'https://github.com/sriimalya/Node-Resource-Tracker',
+    featured: false,
   },
   {
-    name: "Task Manager",
-    description: "A simple task manager that allows users to add, edit, delete and search the tasks.",
-    technologies: ["React", "CSS", "Redux Toolkit"],
+    name: 'Task Manager',
+    description:
+      'A task manager with add, edit, delete and search functionality built with Redux Toolkit.',
+    technologies: ['React', 'CSS', 'Redux Toolkit'],
     photoPath: taskManager,
-    github: "https://github.com/sriimalya/task-manager-redux-toolkit",
-    featured: true
-  },
-  {
-    name: "Quiz App",
-    description: "A simple React-based quiz app that evaluates user answers and displays the final score upon completion.",
-    technologies: ["CSS", "React"],
-    photoPath: quizApp,
-    github: "https://github.com/sriimalya/quizz-app",
-    featured: true
-  },
-  {
-    name: "BMI Calculator",
-    description: "A web app that calculates and displays Body Mass Index (BMI)",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    photoPath: bmiCalc,
-    github: "https://github.com/sriimalya/JS-Projects/tree/main/2-BMI%20Calculator",
-    demo: "https://sriimalya.github.io/JS-Projects/2-BMI%20Calculator/index.html",
-    featured: true
-  },
-  {
-    name: "Coin Collector",
-    description: "In this game the player navigates through an environment and collect coins.",
-    technologies: ["Unity3D", "C#"],
-    photoPath: coinCollector,
-    github: "https://github.com/sriimalya/Coin-Collector",
-    demo: "https://youtu.be/pNFaFmm1QyM?si=oovgsXYyFJutG4oN",
-    featured: true
+    github: 'https://github.com/sriimalya/task-manager-redux-toolkit',
+    featured: false,
   },
 ];
