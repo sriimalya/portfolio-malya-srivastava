@@ -1,152 +1,140 @@
+import { motion } from 'framer-motion';
 import {
-  ArrowDownRight,
   Code2,
   Database,
   Wrench,
-  GraduationCap,
-} from "lucide-react";
+  Server,
+  Monitor,
+  Terminal,
+} from 'lucide-react';
 
+const skillCategories = [
+  {
+    id: 'backend',
+    title: 'Backend & Architecture',
+    icon: Server,
+    skills: [
+      'Node.js', 'Express.js', 'REST APIs', 'Microservices',
+      'Authentication & Authorization', 'API Rate Limiting',
+      'Caching (Redis)', 'WebSockets', 'Socket.io',
+      'System Design', 'SSE (Server-Sent Events)', 'JWT',
+    ],
+  },
+  {
+    id: 'frontend',
+    title: 'Frontend',
+    icon: Monitor,
+    skills: [
+      'React.js', 'Next.js', 'Redux', 'Tailwind CSS',
+      'HTML5', 'CSS3', 'Vite',
+    ],
+  },
+  {
+    id: 'databases',
+    title: 'Databases & ORMs',
+    icon: Database,
+    skills: ['PostgreSQL', 'MongoDB', 'MySQL', 'Prisma', 'SQL'],
+  },
+  {
+    id: 'languages',
+    title: 'Languages',
+    icon: Code2,
+    skills: [
+      'Java', 'JavaScript', 'TypeScript', 'Python',
+      'C', 'C++', 'C#', 'SQL',
+    ],
+  },
+  {
+    id: 'devops',
+    title: 'DevOps & Tools',
+    icon: Wrench,
+    skills: [
+      'Git', 'GitHub', 'AWS S3', 'Docker',
+      'GitHub Actions', 'CI/CD', 'Vercel', 'Netlify',
+      'Render', 'Postman',
+    ],
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 100, damping: 20 },
+  },
+};
+
+const tagVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: 'spring', stiffness: 200, damping: 15 },
+  },
+};
 
 const SkillsSection = () => {
   return (
-    <div className="mb-12 mx-4 md:mx-8">
-
-      <h2 className="text-3xl font-bold text-[#E1FF4A] mb-6">
+    <section className="mb-16">
+      <motion.h2
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.4 }}
+        className="font-mono text-2xl font-bold text-[var(--accent)] mb-6"
+      >
         Skills & Expertise
-      </h2>
+      </motion.h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 auto-rows-auto">
-        {/* Languages & Frameworks */}
-        <div className="md:col-span-2 lg:col-span-2 border border-white/20 rounded-2xl p-5 hover:border-[#E1FF4A]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#E1FF4A]/10 bg-gradient-to-br from-white/[0.02] to-transparent group">
-          <div className="flex items-center gap-2 mb-3">
-            <Code2
-              size={20}
-              className="text-[#E1FF4A] group-hover:rotate-12 transition-transform duration-300"
-            />
-            <h3 className="text-white font-semibold text-lg">
-              Languages & Frameworks
-            </h3>
-          </div>
-          <div className="flex flex-wrap gap-1.5">
-            {[
-              "C",
-              "C++",
-              "C#",
-              "Java",
-              "Python",
-              "JavaScript",
-              "TypeScript",
-              "React.js",
-              "Next.js",
-              "Node.js",
-              "Express.js",
-              "Redux",
-              "HTML5",
-              "CSS3",
-              "Tailwind",
-              "Bootstrap",
-              "Vite",
-              "Firebase",
-              "Supabase",
-              "REST APIs",
-              "Gemini AI",
-            ].map((skill, i) => (
-              <span
-                key={`lang-${i}`}
-                className="px-2.5 py-1 rounded-2xl border border-white/20 text-white/90 hover:border-[#E1FF4A] hover:text-[#E1FF4A] hover:bg-[#E1FF4A]/5 transition-all duration-200 text-sm font-medium cursor-default"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Databases */}
-        <div className="border border-white/20 rounded-2xl p-5 hover:border-[#E1FF4A]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#E1FF4A]/10 bg-gradient-to-br from-white/[0.02] to-transparent group">
-          <div className="flex items-center gap-2 mb-3">
-            <Database
-              size={20}
-              className="text-[#E1FF4A] group-hover:scale-110 transition-transform duration-300"
-            />
-            <h3 className="text-white font-semibold text-lg">Databases</h3>
-          </div>
-          <div className="flex flex-wrap gap-1.5">
-            {["MySQL", "PostgreSQL", "MongoDB", "SQL"].map((skill, i) => (
-              <span
-                key={`db-${i}`}
-                className="px-2.5 py-1 rounded-2xl border border-white/20 text-white/90 hover:border-[#E1FF4A] hover:text-[#E1FF4A] hover:bg-[#E1FF4A]/5 transition-all duration-200 text-sm font-medium cursor-default"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Coursework */}
-        <div className="md:row-span-2 border border-white/20 rounded-2xl p-5 hover:border-[#E1FF4A]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#E1FF4A]/10 bg-gradient-to-br from-white/[0.02] to-transparent group">
-          <div className="flex items-center gap-2 mb-3">
-            <GraduationCap
-              size={20}
-              className="text-[#E1FF4A] group-hover:rotate-12 transition-transform duration-300"
-            />
-            <h3 className="text-white font-semibold text-lg">Coursework</h3>
-          </div>
-          <div className="flex flex-col gap-1.5">
-            {[
-              "Operating Systems",
-              "Computer Networks",
-              "Data Structures",
-              "Algorithms",
-              "OOP",
-              "Databases",
-              "Data Analytics",
-            ].map((skill, i) => (
-              <span
-                key={`course-${i}`}
-                className="px-2.5 py-1.5 rounded-2xl border border-white/20 text-white/90 hover:border-[#E1FF4A] hover:text-[#E1FF4A] hover:bg-[#E1FF4A]/5 transition-all duration-200 text-sm font-medium cursor-default"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* DevOps & Tools */}
-        <div className="md:col-span-2 lg:col-span-3 border border-white/20 rounded-2xl p-5 hover:border-[#E1FF4A]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#E1FF4A]/10 bg-gradient-to-br from-white/[0.02] to-transparent group">
-          <div className="flex items-center gap-2 mb-3">
-            <Wrench
-              size={20}
-              className="text-[#E1FF4A] group-hover:rotate-12 transition-transform duration-300"
-            />
-            <h3 className="text-white font-semibold text-lg">DevOps & Tools</h3>
-          </div>
-          <div className="flex flex-wrap gap-1.5">
-            {[
-              "Git",
-              "GitHub",
-              "GitLFS",
-              "AWS S3",
-              "Postman",
-              "Vercel",
-              "Netlify",
-              "Render",
-              "GitHub Actions",
-              "VS Code",
-              "Visual Studio",
-              "Eclipse",
-              "Figma",
-            ].map((skill, i) => (
-              <span
-                key={`devops-${i}`}
-                className="px-2.5 py-1 rounded-2xl border border-white/20 text-white/90 hover:border-[#E1FF4A] hover:text-[#E1FF4A] hover:bg-[#E1FF4A]/5 transition-all duration-200 text-sm font-medium cursor-default"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-50px' }}
+        className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:balance]"
+      >
+        {skillCategories.map((category) => (
+          <motion.div
+            key={category.id}
+            variants={cardVariants}
+            className="glass-card p-5 group mb-4 break-inside-avoid"
+          >
+            <div className="flex items-center gap-2.5 mb-4">
+              <category.icon
+                size={18}
+                className="text-[var(--accent)] group-hover:rotate-12 transition-transform duration-300"
+              />
+              <h3 className="font-mono text-sm font-semibold text-[var(--text-primary)]">
+                {category.title}
+              </h3>
+            </div>
+            <motion.div
+              variants={containerVariants}
+              className="flex flex-wrap gap-2"
+            >
+              {category.skills.map((skill, i) => (
+                <motion.span
+                  key={`${category.id}-${i}`}
+                  variants={tagVariants}
+                  className="px-2.5 py-1 rounded-full border border-[var(--glass-border)] text-[var(--text-secondary)] hover:border-[var(--glass-border-hover)] hover:text-[var(--accent)] hover:bg-[var(--accent-wash)] transition-all duration-200 text-xs font-mono cursor-default leading-none"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </motion.div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
   );
 };
 

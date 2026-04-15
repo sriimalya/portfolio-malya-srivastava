@@ -1,19 +1,40 @@
-import { ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Mail, ExternalLink } from 'lucide-react';
 
 const ContactSection = () => {
-  const email = "mailto:malyasri0112@gmail.com";
-  
   return (
-    <div id="contact" className="m-8 border border-white/20 rounded-2xl py-5 px-6 hover:border-[#E1FF4A]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#E1FF4A]/10 bg-gradient-to-br from-white/[0.02] to-transparent group flex flex-col text-center">
-      <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
-      <p className="text-gray-400 mb-6">
-        I'm always open to discussing new projects and opportunities.
-      </p>
-      <a href={email}
-        className="bg-[#E1FF4A] text-black px-6 py-2 rounded-full flex items-center gap-2 mx-auto w-fit hover:bg-[#d4f038] transform hover:scale-105 transition-all duration-200">
-        Send me an Email <ExternalLink size={16} />
-      </a>
-    </div>
+    <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+      className="mb-16"
+    >
+      <div className="glass-card p-8 sm:p-10 text-center">
+        <h2 className="font-mono text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-3">
+          Let's build something together
+        </h2>
+        <p className="font-sans text-sm text-[var(--text-secondary)] mb-6 max-w-md mx-auto leading-relaxed">
+          Open to discussing backend systems, full-stack architecture, and new engineering challenges.
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+          <a
+            href="https://mail.google.com/mail/?view=cm&to=malyasri0112@gmail.com"
+            className="bg-lime-electric text-ink-dark px-6 py-2.5 rounded-full flex items-center gap-2 font-mono text-sm font-medium hover:brightness-105 active:translate-y-px transition-all duration-200"
+          >
+            <Mail size={16} /> Send an Email
+          </a>
+          <a
+            href="https://github.com/sriimalya"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass-card px-6 py-2.5 rounded-full flex items-center gap-2 font-mono text-sm text-[var(--text-secondary)] hover:text-[var(--accent)]"
+          >
+            <ExternalLink size={16} /> GitHub
+          </a>
+        </div>
+      </div>
+    </motion.section>
   );
 };
 

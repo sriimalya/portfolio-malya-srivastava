@@ -2,32 +2,49 @@ import { Github, ExternalLink } from 'lucide-react';
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className="group">
-      <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-3 border border-white/10 group-hover:border-white/30 transition-colors duration-300">
-        <img
-          src={project.photoPath}
-          alt={project.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-      </div>
-      <h3 className="font-medium text-[#E1FF4A] mb-1">{project.name}</h3>
-      <p className="text-sm text-gray-400 mb-3 line-clamp-2">{project.description}</p>
-      <div className="flex flex-wrap gap-2 mb-3">
+    <div className="glass-card p-5 group flex flex-col h-full">
+      {/* Image */}
+      {project.photoPath && (
+        <div className="relative aspect-[16/10] rounded-lg overflow-hidden mb-4 bg-[var(--glass-fill)]">
+          <img
+            src={project.photoPath}
+            alt={project.name}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      )}
+
+      <h3 className="font-mono text-base font-medium text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors duration-200 mb-1">
+        {project.name}
+      </h3>
+      <p className="font-sans text-xs text-[var(--text-secondary)] mb-3 line-clamp-2 leading-relaxed flex-grow">
+        {project.description}
+      </p>
+
+      {/* Tech tags */}
+      <div className="flex flex-wrap gap-1.5 mb-4">
         {project.technologies.map((tech) => (
-          <span key={tech} className="text-xs px-2 py-1 bg-zinc-800 rounded-md">
+          <span
+            key={tech}
+            className="text-[10px] px-2 py-0.5 rounded-full border border-[var(--glass-border)] text-[var(--text-muted)] font-mono"
+          >
             {tech}
           </span>
         ))}
       </div>
-      <div className="flex gap-4">
+
+      {/* Links */}
+      <div className="flex gap-3 text-xs font-mono mt-auto">
         {project.github && (
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs flex items-center gap-1 hover:text-[#E1FF4A] transition-colors duration-200"
+            className="flex items-center gap-1 text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200"
           >
-            <Github size={14} /> Code
+            <Github size={13} /> code
           </a>
         )}
         {project.demo && (
@@ -35,9 +52,9 @@ const ProjectCard = ({ project }) => {
             href={project.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs flex items-center gap-1 hover:text-[#E1FF4A] transition-colors duration-200"
+            className="flex items-center gap-1 text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200"
           >
-            <ExternalLink size={14} /> Demo
+            <ExternalLink size={13} /> demo
           </a>
         )}
       </div>

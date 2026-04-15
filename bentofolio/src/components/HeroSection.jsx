@@ -1,122 +1,110 @@
-import { useState } from "react";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  ExternalLink,
-} from "lucide-react";
-import { FaBehance } from "react-icons/fa";
-import talkImage from "../assets/images/talk.jpg";
-import hackerImage from "../assets/images/hacker.jpg";
-import workingImage from "../assets/images/working.jpg";
-import workLaptopImage from "../assets/images/workLaptop.jpg";
+import { motion } from 'framer-motion';
+import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import Terminal from './Terminal';
+
+const terminalLines = [
+  'turning ideas into shipped features',
+  'shipping faster than my cold starts',
+  'ai, backend, and systems in progress',
+  'making systems behave (most days)',
+  'debugging what i just shipped',
+];
+
+const socialLinks = [
+  {
+    href: 'https://github.com/sriimalya',
+    icon: Github,
+    label: 'GitHub',
+  },
+  {
+    href: 'https://www.linkedin.com/in/malya-srivastava-5a4254229/',
+    icon: Linkedin,
+    label: 'LinkedIn',
+  },
+  {
+    href: 'https://mail.google.com/mail/?view=cm&to=malyasri0112@gmail.com',
+    icon: Mail,
+    label: 'Email',
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 100, damping: 20 },
+  },
+};
 
 const HeroSection = () => {
-  const [loadedImages, setLoadedImages] = useState({});
-
-  const socialLinks = {
-    github: "https://github.com/sriimalya",
-    linkedin: "https://linkedin.com/in/malya-srivastava-5a4254229",
-    email: "mailto:malyasri0112@gmail.com",
-    behance: "https://www.behance.net/malyasrivastava",
-  };
-
-  const images = [
-    { id: 1, src: talkImage, alt: "Presenting" },
-    { id: 2, src: hackerImage, alt: "Coding session" },
-    { id: 3, src: workingImage, alt: "Working on project" },
-    { id: 4, src: workLaptopImage, alt: "Laptop workspace" },
-  ];
-
-  const handleImageLoad = (id) => {
-    setLoadedImages((prev) => ({ ...prev, [id]: true }));
-  };
-
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 mx-8">
-      <div className="col-span-1 lg:col-span-2 border border-white/20 rounded-2xl py-5 px-6 hover:border-[#E1FF4A]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#E1FF4A]/10 bg-gradient-to-br from-white/[0.02] to-transparent group flex flex-col justify-center">
-        <h1 className="text-3xl sm:text-4xl font-medium mb-4">
-          Hi, I am <span className="text-[#E1FF4A]">Malya Srivastava</span>
+    <motion.section
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-16"
+    >
+      {/* Intro Card — spans 3 columns */}
+      <motion.div
+        variants={itemVariants}
+        className="lg:col-span-3 glass-card p-6 sm:p-8 flex flex-col justify-center"
+      >
+        <h1 className="font-mono text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[var(--text-primary)] mb-4">
+          Hi, I am{' '}
+          <span className="text-[var(--accent)]">Malya Srivastava</span>
         </h1>
-        <p className="text-l sm:text-l mb-6">
-          Building full-stack web apps that are <span className="italic">fast, scalable, and production-ready.</span>
+        <p className="font-sans text-base sm:text-lg text-[var(--text-secondary)] mb-6 max-w-[55ch] leading-relaxed">
+          Full Stack Developer building{' '}
+          <span className="text-[var(--text-primary)] font-medium italic">
+            fast, scalable, and production-ready{' '}
+          </span>
+          web applications with Next.js, Node.js, and PostgreSQL.
         </p>
 
         <div className="flex flex-wrap gap-4 items-center">
           <a
-            href="https://drive.google.com/file/d/1A0Ggf3O30-vmF85RdK0R0o2Y8fiI4RAB/view?usp=sharing"
-            className="bg-[#E1FF4A] text-black px-6 py-2 rounded-full flex items-center gap-1 hover:bg-[#d4f038] transform hover:scale-105 transition-all duration-200"
+            href="https://drive.google.com/file/d/1ZWAzZG6S-wehzEgLf-AgAex9oeLgw84E/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-lime-electric text-ink-dark px-6 py-2.5 rounded-full flex items-center gap-2 font-mono text-sm font-medium hover:brightness-105 active:translate-y-px transition-all duration-200"
           >
-            Resume <ExternalLink size={18} />
+            Resume <ExternalLink size={16} />
           </a>
 
-          <div className="flex gap-4">
-            <a
-              href={socialLinks.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transform hover:scale-110 transition-transform duration-200"
-              aria-label="GitHub Profile"
-            >
-              <Github className="w-6 h-6 hover:text-[#E1FF4A] transition-colors duration-200" />
-            </a>
-            <a
-              href={socialLinks.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transform hover:scale-110 transition-transform duration-200"
-              aria-label="LinkedIn Profile"
-            >
-              <Linkedin className="w-6 h-6 hover:text-[#E1FF4A] transition-colors duration-200" />
-            </a>
-            <a
-              href={socialLinks.behance}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transform hover:scale-110 transition-transform duration-200"
-              aria-label="Behance Portfolio"
-            >
-              <FaBehance className="w-6 h-6 scale-110 hover:text-[#E1FF4A] transition-colors duration-200" />
-            </a>
-            <a
-              href={socialLinks.email}
-              className="transform hover:scale-110 transition-transform duration-200"
-              aria-label="Email Contact"
-            >
-              <Mail className="w-6 h-6 hover:text-[#E1FF4A] transition-colors duration-200" />
-            </a>
+          <div className="flex gap-3">
+            {socialLinks.map(({ href, icon: Icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                target={label !== 'Email' ? '_blank' : undefined}
+                rel={label !== 'Email' ? 'noopener noreferrer' : undefined}
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-[var(--glass-border)] hover:border-[var(--glass-border-hover)] hover:bg-[var(--accent-wash)] transition-all duration-200"
+                aria-label={label}
+              >
+                <Icon className="w-[18px] h-[18px] text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200" />
+              </a>
+            ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="flex justify-center lg:justify-start">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-2 gap-4 w-full max-w-md md:max-w-full">
-          {images.map(({ id, src, alt }) => (
-            <div
-              key={id}
-              className="border-b-2 border-r-2 border-[#E1FF4A] rounded-2xl overflow-hidden transform hover:scale-105 transition-transform duration-200 aspect-[6/5] bg-white/5 relative"
-            >
-              {/* Loading skeleton */}
-              {!loadedImages[id] && (
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 animate-pulse" />
-              )}
-              
-              {/* Actual image */}
-              <img
-                src={src}
-                alt={alt}
-                loading="lazy"
-                decoding="async"
-                onLoad={() => handleImageLoad(id)}
-                className={`w-full h-full object-cover transition-opacity duration-300 ${
-                  loadedImages[id] ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+      {/* Terminal Card — spans 2 columns */}
+      <motion.div variants={itemVariants} className="lg:col-span-2 min-h-[240px]">
+        <Terminal lines={terminalLines} typingSpeed={45} pauseDuration={3500} />
+      </motion.div>
+    </motion.section>
   );
 };
 

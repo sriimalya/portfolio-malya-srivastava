@@ -1,83 +1,124 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
 import { codeProjectsData } from '../data/codeProjectsData';
 
-const CodeProjectsPage = () => {
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 100, damping: 20 },
+  },
+};
+
+const ProjectsPage = () => {
+  const [filter, setFilter] = useState('all');
+
   useEffect(() => {
+    document.title = 'Projects — Malya Srivastava';
     window.scrollTo(0, 0);
   }, []);
 
-  const [filter, setFilter] = useState('all');
-  
-  // Get unique technology categories sorted alphabetically
-  const uniqueTechnologies = [...new Set(
-    codeProjectsData.flatMap(project => project.technologies)
-  )].sort();
-  
-  // Filter projects based on selected technology
-  const filteredProjects = filter === 'all' 
-    ? codeProjectsData 
-    : codeProjectsData.filter(project => project.technologies.includes(filter));
-  
+  const uniqueTechnologies = [
+    ...new Set(codeProjectsData.flatMap((project) => project.technologies)),
+  ].sort();
+
+  const filteredProjects =
+    filter === 'all'
+      ? codeProjectsData
+      : codeProjectsData.filter((project) =>
+          project.technologies.includes(filter)
+        );
+
   return (
-    <div className="py-12 mx-8">
-      {/* Header with back link */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-[#E1FF4A] mb-2">Development Projects</h1>
-          <p className="text-gray-400">Technical implementations and coding solutions</p>
-        </div>
-        
-      </div>
-      
-      {/* Filter controls */}
-      <div className="mb-12">
-        <div className="flex flex-wrap items-center gap-4">
-          <span className="text-gray-400 text-sm">Filter by technology:</span>
+    <div className="min-h-[80vh]">
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="mb-8"
+      >
+        <h1 className="font-mono text-3xl sm:text-4xl font-bold text-[var(--text-primary)] mb-2">
+          All <span className="text-[var(--accent)]">Projects</span>
+        </h1>
+        <p className="font-sans text-base text-[var(--text-secondary)]">
+          Technical implementations, full-stack applications, and engineering experiments.
+        </p>
+      </motion.div>
+
+      {/* Filter */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.3 }}
+        className="mb-10"
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="font-mono text-xs text-[var(--text-muted)]">
+            filter:
+          </span>
           <div className="flex flex-wrap gap-2">
-            <button 
+            <button
               onClick={() => setFilter('all')}
-              className={`px-4 py-2 rounded-full text-sm transition-all duration-200 
-                ${filter === 'all' 
-                  ? 'bg-[#E1FF4A] text-black font-medium' 
-                  : 'bg-zinc-800 text-white hover:bg-zinc-700'}`}
+              className={`px-3 py-1.5 rounded-full font-mono text-xs transition-all duration-200 ${
+                filter === 'all'
+                  ? 'bg-lime-electric text-ink-dark font-medium'
+                  : 'border border-[var(--glass-border)] text-[var(--text-secondary)] hover:border-[var(--glass-border-hover)] hover:bg-[var(--accent-wash)]'
+              }`}
             >
-              All Projects
+              all
             </button>
-            
             {uniqueTechnologies.map((tech) => (
-              <button 
+              <button
                 key={tech}
                 onClick={() => setFilter(tech)}
-                className={`px-4 py-2 rounded-full text-sm transition-all duration-200 
-                  ${filter === tech 
-                    ? 'bg-[#E1FF4A] text-black font-medium' 
-                    : 'bg-zinc-800 text-white hover:bg-zinc-700'}`}
+                className={`px-3 py-1.5 rounded-full font-mono text-xs transition-all duration-200 ${
+                  filter === tech
+                    ? 'bg-lime-electric text-ink-dark font-medium'
+                    : 'border border-[var(--glass-border)] text-[var(--text-secondary)] hover:border-[var(--glass-border-hover)] hover:bg-[var(--accent-wash)]'
+                }`}
               >
                 {tech}
               </button>
             ))}
           </div>
         </div>
-      </div>
-      
-      {/* Projects grid */}
+      </motion.div>
+
+      {/* Projects Grid */}
       {filteredProjects.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
           {filteredProjects.map((project) => (
-            <ProjectCard key={project.name} project={project} />
+            <motion.div key={project.name} variants={cardVariants}>
+              <ProjectCard project={project} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       ) : (
-        <div className="text-center py-12">
-          <p className="text-gray-400">No projects found with this filter</p>
-          <button 
+        <div className="glass-card text-center py-16">
+          <p className="font-sans text-base text-[var(--text-secondary)]">
+            No projects found with this filter.
+          </p>
+          <button
             onClick={() => setFilter('all')}
-            className="mt-4 px-4 py-2 bg-[#E1FF4A] text-black rounded-full text-sm font-medium hover:bg-[#E1FF4A]/90 transition-colors duration-200"
+            className="mt-3 font-mono text-sm text-[var(--accent)] hover:underline"
           >
-            Show All Projects
+            Show all
           </button>
         </div>
       )}
@@ -85,4 +126,4 @@ const CodeProjectsPage = () => {
   );
 };
 
-export default CodeProjectsPage;
+export default ProjectsPage;
